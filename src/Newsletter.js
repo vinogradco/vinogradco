@@ -10,7 +10,7 @@ const NewsletterSuccess = () => (
     <p>Вы изумительны!</p>
     <p>В режиме ожидания великих вестей от нас вы можете:</p>
     <p>Становиться винным экспертом в <a href="https://t.me/vvinograd" target="_blank">Телеграме</a></p>
-    <p>И учиться на наших ошибках в <a href="https://t.me/vvinograd" target="_blank">Вивино</a></p>
+    <p>И учиться на наших ошибках в <a href="https://www.vivino.com/users/vinograd.co" target="_blank">Вивино</a></p>
   </div>);
 
 class SubscribeForm extends React.Component {
