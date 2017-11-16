@@ -5,6 +5,14 @@ import jsonp from "jsonp";
 
 const getAjaxUrl = url => url.replace('/post?', '/post-json?');
 
+const NewsletterSuccess = () => (
+  <div className="newsletter-success">
+    <p>Вы изумительны!</p>
+    <p>В режиме ожидания великих вестей от нас вы можете:</p>
+    <p>Становиться винным экспертом в <a href="https://t.me/vvinograd" target="_blank">Телеграме</a></p>
+    <p>И учиться на наших ошибках в <a href="https://t.me/vvinograd" target="_blank">Вивино</a></p>
+  </div>);
+
 class SubscribeForm extends React.Component {
   constructor(props, ...args) {
     super(props, ...args)
@@ -62,7 +70,7 @@ class SubscribeForm extends React.Component {
               name="EMAIL"
               id="mce-EMAIL"
               required={true}
-              placeholder={messages.inputPlaceholder}
+              placeholder="Ваш email"
             />
             <div className="clear newsletter-button">
               <button
@@ -71,15 +79,15 @@ class SubscribeForm extends React.Component {
                 type="submit"
                 id="mc-embedded-subscribe"
               >
-                {messages.btnLabel}
+                Оставить email
               </button>
             </div>
           </div>
 
           {status === "sending" && <Loader type="ball-pulse" className="vino-loader" />}
-          {status === "error" && <p style={styles.error} dangerouslySetInnerHTML={{ __html: messages.error }} />}
+          {status === "error" && <p className="newsletter-error">Упс, похоже вы уже подписаны или ввели неверный email :(</p>}
         </form>}
-        {status === "success" && <p style={styles.success} dangerouslySetInnerHTML={{ __html: messages.success }} />}
+        {status === "success" && <NewsletterSuccess />}
       </div>
     )
   }
@@ -90,25 +98,7 @@ SubscribeForm.propTypes = {
   styles: PropTypes.object
 }
 
-SubscribeForm.defaultProps = {
-  messages: {
-    inputPlaceholder: "Ваш email",
-    btnLabel: "Оставить email",
-    sending: "",
-    success: "Вы изумительны!",
-    error: "Упс, похоже ваш email не действителен :("
-  },
-  styles: {
-    sending: {
-      fontSize: 18,
-      color: "auto"
-    },
-    error: {
-      fontSize: 18,
-      color: "red"
-    }
-  }
-}
+
 /*
 const Newsletter = (props) => (
   <div className="newsletter">

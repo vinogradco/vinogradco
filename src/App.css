@@ -55,6 +55,17 @@ img.logo {
   padding-top: 12px;
 }
 
+.newsletter-error {
+  font-size: 12px;
+  margin: auto;
+  margin-top: 12px;
+  max-width: 200px;
+}
+
+.newsletter-success a{
+  color: rgba(49, 49, 49, 1);
+}
+
  ul.social-networks {
    list-style: none;
    margin-top: 28px;
@@ -148,6 +159,10 @@ img.logo {
 
   ul.social-networks {
     margin-top: 10px;
+  }
+
+  .newsletter-success {
+    font-size: 10px;
   }
 
 
